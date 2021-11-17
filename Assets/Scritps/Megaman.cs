@@ -220,7 +220,7 @@ public class Megaman : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Enemy") && dead == false)
+        if(collision.gameObject.CompareTag("Enemy") && dead == false || collision.gameObject.CompareTag("BulletEnemy") && dead == false)
         {
             StartCoroutine("Die");
             dead = true;

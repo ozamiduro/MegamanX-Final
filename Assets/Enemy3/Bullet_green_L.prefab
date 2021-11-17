@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5464770954942533116}
   m_Layer: 9
   m_Name: Bullet_green_L
-  m_TagString: Untagged
+  m_TagString: BulletEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1890977421
+  m_SortingLayerID: -1087359235
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -4715437899114228697, guid: 211e4fb16b8d9d24ead4f59a774fb204, type: 3}

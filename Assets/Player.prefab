@@ -131,9 +131,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1890977421
+  m_SortingLayerID: -1087359235
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -6869773987950756324, guid: ab98d6baf9be3fb4bb6c2829bcafa711, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -230,3 +230,11 @@ MonoBehaviour:
   dashSpeed: 20
   Bullet: {fileID: 4328689498152411258, guid: 96e60b6f6bd23274b84d72e33d202f5e, type: 3}
   nextfire: 0.1
+  fxdead: {fileID: 5005261026957085425, guid: 59f5829106b083949ac32b37504b8562, type: 3}
+  vfx_death: {fileID: 8300000, guid: 6da299c3032da9341b7508141b8e6e9e, type: 3}
+  jump_sound: {fileID: 8300000, guid: 790f48d5902cdd648a66ade583e7f3ed, type: 3}
+  aterrizaje_sound: {fileID: 8300000, guid: c3f19465a5227e948ace88b82bf4ea49, type: 3}
+  dash_sound: {fileID: 8300000, guid: b0220992bb848ef42bf71d42417e98d3, type: 3}
+  bullet_sound: {fileID: 8300000, guid: f5f5e8bdbc92d5649b4000cd75dc14bc, type: 3}
+  gameover: {fileID: 0}
+  principal: {fileID: 0}

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -3688475657230072724}
   m_Layer: 8
   m_Name: Enemy4R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1890977421
+  m_SortingLayerID: -1087359235
   m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 4801227835787818748, guid: 7bbe37e051a68924a9191652eb0b500f, type: 3}
@@ -146,8 +146,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 293657671498638158, guid: 6f3a0bfda6d3f0f42be2bb043e4b447c, type: 3}
-  fireInter: 600
-  player: {fileID: 0}
+  fireInter: 200
+  player: {fileID: 6474574975474886139, guid: d06a81efe4f149e4ca583f4a52ca5a1a, type: 3}
   Explosion: {fileID: 1250254325443010729, guid: 710a09cf46fa4e04e92b32e13a182f69, type: 3}
   Scrap: {fileID: 8560630505903546993, guid: 515ed0eecfc42d14db91ad87aeaf2fdf, type: 3}
   range: 15

@@ -20,16 +20,24 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -3688475657230072724, guid: be45275813b88544dbba697c23827f24, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 6474574975474886139, guid: d06a81efe4f149e4ca583f4a52ca5a1a, type: 3}
+    - target: {fileID: -3688475657230072724, guid: be45275813b88544dbba697c23827f24, type: 3}
       propertyPath: Explosion
       value: 
       objectReference: {fileID: 1250254325443010729, guid: 710a09cf46fa4e04e92b32e13a182f69, type: 3}
     - target: {fileID: -3688475657230072724, guid: be45275813b88544dbba697c23827f24, type: 3}
       propertyPath: fireInter
-      value: 600
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2058916458231672327, guid: be45275813b88544dbba697c23827f24, type: 3}
       propertyPath: m_Name
       value: Enemy4L
+      objectReference: {fileID: 0}
+    - target: {fileID: 2058916458231672327, guid: be45275813b88544dbba697c23827f24, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 2058916458231672344, guid: be45275813b88544dbba697c23827f24, type: 3}
       propertyPath: m_FlipX
@@ -38,6 +46,14 @@ PrefabInstance:
     - target: {fileID: 2058916458231672344, guid: be45275813b88544dbba697c23827f24, type: 3}
       propertyPath: m_FlipY
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2058916458231672344, guid: be45275813b88544dbba697c23827f24, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2058916458231672344, guid: be45275813b88544dbba697c23827f24, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1087359235
       objectReference: {fileID: 0}
     - target: {fileID: 2058916458231672345, guid: be45275813b88544dbba697c23827f24, type: 3}
       propertyPath: m_RootOrder

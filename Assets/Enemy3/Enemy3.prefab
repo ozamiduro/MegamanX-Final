@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -8433831854760628009}
   m_Layer: 8
   m_Name: Enemy3
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1890977421
+  m_SortingLayerID: -1087359235
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 2302870733942359475, guid: 211e4fb16b8d9d24ead4f59a774fb204, type: 3}
@@ -169,6 +169,6 @@ MonoBehaviour:
   RBullet: {fileID: 5756737330171889872, guid: fe1fc8dda54fab242a036e45efb4491f, type: 3}
   player: {fileID: 6474574975474886139, guid: d06a81efe4f149e4ca583f4a52ca5a1a, type: 3}
   Explosion: {fileID: 1250254325443010729, guid: 710a09cf46fa4e04e92b32e13a182f69, type: 3}
-  fireInter: 520
-  range: 5
+  fireInter: 350
+  range: 15
   vidas: 3
