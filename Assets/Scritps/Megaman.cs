@@ -12,6 +12,15 @@ public class Megaman : MonoBehaviour
     [SerializeField] float dashSpeed;
     [SerializeField] GameObject Bullet;
     [SerializeField] float nextfire;
+    [SerializeField] GameObject fxdead;
+    [SerializeField] AudioClip vfx_death;
+    [SerializeField] AudioClip jump_sound;
+    [SerializeField] AudioClip aterrizaje_sound;
+    [SerializeField] AudioClip dash_sound;
+    [SerializeField] AudioClip bullet_sound;
+    [SerializeField] GameObject gameover;
+    [SerializeField] GameObject principal;
+
     private int fireCounter = 0;
     private bool shortFuse = false;
     float canFire;
@@ -19,6 +28,8 @@ public class Megaman : MonoBehaviour
     private float timer;
     private bool secSalto = false;
     private int secondsCounter;
+    private bool pause = false;
+    private bool dead=false;
 
     Animator myAnimator;
     Rigidbody2D myBody;
@@ -30,37 +41,42 @@ public class Megaman : MonoBehaviour
         myAnimator = GetComponent<Animator>();
         myBody = GetComponent<Rigidbody2D>();
         myCollider = GetComponent<BoxCollider2D>();
+        gameover.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Mover();
-        Saltar();
-        Falling();
-        if (shortFuse)
-            fireCounter++;
-        if (salto)
-            timer += Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.Space) && timer > 0.15 && secSalto)
+        if(!pause)
         {
-            myBody.velocity = new Vector2(myBody.velocity.x, jumpSpeed2);
-            Debug.Log("Sec");
-            secSalto = false;
-        }
-        Fire();
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            secondsCounter++;
-            Debug.Log(secondsCounter);
-        }
+            Mover();
+            Saltar();
+            Falling();
+            if (shortFuse)
+                fireCounter++;
+            if (salto)
+                timer += Time.deltaTime;
+            if (Input.GetKeyDown(KeyCode.Space) && timer > 0.15 && secSalto)
+            {
+                myBody.velocity = new Vector2(myBody.velocity.x, jumpSpeed2);
+                Debug.Log("Sec");
+                secSalto = false;
+            }
+            Fire();
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                secondsCounter++;
+                Debug.Log(secondsCounter);
+            }
 
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            secondsCounter = 0;
-            myBody.velocity = new Vector2(dashSpeed / 2, 0);
+            if (Input.GetKeyUp(KeyCode.LeftShift))
+            {
+                secondsCounter = 0;
+                myBody.velocity = new Vector2(dashSpeed / 2, 0);
+            }
+            Dash();
         }
-        Dash();
+        
     }
 
     void Fire()
@@ -88,6 +104,7 @@ public class Megaman : MonoBehaviour
 
             Instantiate(Bullet, transform.position - new Vector3(0.9f, 0) * (transform.localScale.x * -1), transform.rotation);
             canFire = Time.time + nextfire;
+            AudioSource.PlayClipAtPoint(bullet_sound,Camera.main.transform.position);
         }
 
 
@@ -123,6 +140,11 @@ public class Megaman : MonoBehaviour
                             myBody.velocity = new Vector2(-dashSpeed, 0);
                             break;
                     }
+                }
+
+                if(Input.GetKeyDown(KeyCode.LeftShift))
+                {
+                    AudioSource.PlayClipAtPoint(dash_sound,Camera.main.transform.position);
                 }
 
             }
@@ -166,6 +188,7 @@ public class Megaman : MonoBehaviour
                 secSalto = true;
                 salto = true;
                 Debug.Log("Fer");
+                AudioSource.PlayClipAtPoint(jump_sound, Camera.main.transform.position);
             }
         }
     }
@@ -185,6 +208,7 @@ public class Megaman : MonoBehaviour
         RaycastHit2D myRaycast = Physics2D.Raycast(myCollider.bounds.center, Vector2.down, myCollider.bounds.extents.y + 0.2f, LayerMask.GetMask("Ground"));
         Debug.DrawRay(myCollider.bounds.center, new Vector2(0, (myCollider.bounds.extents.y + 0.2f) * -1), Color.white);
         return myRaycast.collider != null;
+        AudioSource.PlayClipAtPoint(aterrizaje_sound, Camera.main.transform.position);
 
     }
 
@@ -192,5 +216,33 @@ public class Megaman : MonoBehaviour
     {
         myAnimator.SetBool("jumping", false);
         myAnimator.SetBool("falling", true);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Enemy") && dead == false)
+        {
+            StartCoroutine("Die");
+            dead = true;
+        }
+    }
+
+    IEnumerator Die()
+    {
+        pause = true;
+        myBody.bodyType = RigidbodyType2D.Static;
+        //transform.position = new Vector2(transform.position.x,transform.position.y);
+        myAnimator.SetBool("falling", false);
+        myAnimator.SetBool("death", true);
+        AudioSource.PlayClipAtPoint(vfx_death, Camera.main.transform.position);
+        yield return new WaitForSeconds(1);
+        Instantiate(fxdead, transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(fxdead, transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(fxdead, transform.position, transform.rotation);
+        yield return new WaitForSeconds(3);
+        principal.SetActive(false);
+        gameover.SetActive(true);
     }
 }
