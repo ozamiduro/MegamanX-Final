@@ -1282,6 +1282,7 @@ MonoBehaviour:
   total: {fileID: 845091692}
   victoria: {fileID: 858767943}
   principal: {fileID: 519420028}
+  player: {fileID: 401600904}
   to: 0
 --- !u!1 &799569546
 GameObject:

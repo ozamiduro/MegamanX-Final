@@ -9,6 +9,7 @@ public class Contador : MonoBehaviour
     [SerializeField] TextMeshProUGUI total;
     [SerializeField] GameObject victoria;
     [SerializeField] GameObject principal;
+    [SerializeField] GameObject player;
 
     public int to;
 
@@ -26,6 +27,7 @@ public class Contador : MonoBehaviour
         Contadorr();
         if (to == 0)
         {
+            Destroy(player.gameObject);
             Victoria();
         }
     }
